@@ -1,0 +1,9 @@
+C:\Users\Mario_Contreras\Dropbox\MSC\49. Proyecto Integrador\Code\MyResolutions\MyResolutionsAPI\MyResolutionsAPI\bin\Debug\netcoreapp1.1\MyResolutionsAPI.deps.json
+C:\Users\Mario_Contreras\Dropbox\MSC\49. Proyecto Integrador\Code\MyResolutions\MyResolutionsAPI\MyResolutionsAPI\bin\Debug\netcoreapp1.1\MyResolutionsAPI.runtimeconfig.json
+C:\Users\Mario_Contreras\Dropbox\MSC\49. Proyecto Integrador\Code\MyResolutions\MyResolutionsAPI\MyResolutionsAPI\bin\Debug\netcoreapp1.1\MyResolutionsAPI.runtimeconfig.dev.json
+C:\Users\Mario_Contreras\Dropbox\MSC\49. Proyecto Integrador\Code\MyResolutions\MyResolutionsAPI\MyResolutionsAPI\bin\Debug\netcoreapp1.1\MyResolutionsAPI.dll
+C:\Users\Mario_Contreras\Dropbox\MSC\49. Proyecto Integrador\Code\MyResolutions\MyResolutionsAPI\MyResolutionsAPI\obj\Debug\netcoreapp1.1\MyResolutionsAPI.csprojResolveAssemblyReference.cache
+C:\Users\Mario_Contreras\Dropbox\MSC\49. Proyecto Integrador\Code\MyResolutions\MyResolutionsAPI\MyResolutionsAPI\obj\Debug\netcoreapp1.1\MyResolutionsAPI.AssemblyInfo.cs
+C:\Users\Mario_Contreras\Dropbox\MSC\49. Proyecto Integrador\Code\MyResolutions\MyResolutionsAPI\MyResolutionsAPI\bin\Debug\netcoreapp1.1\MyResolutionsAPI.pdb
+C:\Users\Mario_Contreras\Dropbox\MSC\49. Proyecto Integrador\Code\MyResolutions\MyResolutionsAPI\MyResolutionsAPI\obj\Debug\netcoreapp1.1\MyResolutionsAPI.dll
+C:\Users\Mario_Contreras\Dropbox\MSC\49. Proyecto Integrador\Code\MyResolutions\MyResolutionsAPI\MyResolutionsAPI\obj\Debug\netcoreapp1.1\MyResolutionsAPI.pdb
