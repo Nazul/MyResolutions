@@ -15,15 +15,30 @@
   -->
 
 <resources>
-    <string name="action_sign_in">Iniciar sesión o registrarse</string>
-    <string name="action_sign_in_short">Iniciar sesión</string>
+    <string name="action_login">Iniciar sesión</string>
+    <string name="action_account">Cuenta</string>
+    <string name="action_assignment">Tareas</string>
+    <string name="action_sync">Sincronizar</string>
     <string name="app_name">Mis Propósitos</string>
-    <string name="btnLogin">Iniciar Sesión</string>
     <string name="error_field_required">Este campo es requerido</string>
     <string name="error_incorrect_password">Esta contraseña es incorrecta</string>
     <string name="error_invalid_email">Esta dirección de correo electrónico es incorrecta</string>
     <string name="error_invalid_password">Esta contraseña es muy corta</string>
     <string name="prompt_email">Dirección de correo electrónico</string>
-    <string name="prompt_password">Contraseña (opcional)</string>
+    <string name="prompt_password">Contraseña</string>
     <string name="title_activity_login">Iniciar Sesión</string>
+    <string name="action_logout">Cerrar sesión</string>
+    <string name="navigation_drawer_open">Abrir menú de navegación</string>
+    <string name="navigation_drawer_close">Abrir menú de navegación</string>
+    <string name="action_settings">Settings</string>
+    <string name="label_register">Si aún no tienes una cuenta, regístrate aquí</string>
+    <string name="title_activity_register">Registro</string>
+    <string name="prompt_confirm_password">Confirmar contraseña</string>
+    <string name="prompt_first_name">Nombre</string>
+    <string name="prompt_last_name">Apellido</string>
+    <string name="prompt_nick">Sobrenombre</string>
+    <string name="action_register">Registrarse</string>
+    <string name="title_activity_account">Tu Cuenta</string>
+    <string name="error_confirmation_failed">Las contraseñas no coinciden</string>
+    <string name="action_account_save">Guardar</string>
 </resources><!-- EOF -->
