@@ -20,20 +20,21 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONObject;
 
 import java.io.File;
 
@@ -54,20 +55,14 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                //        .setAction("Action", null).show();
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+
+        GoalsListFragment fragment = new GoalsListFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, fragment).commit();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -91,7 +86,7 @@ public class MainActivity extends AppCompatActivity
                 File image = new File(getApplicationContext().getFilesDir(), loggedUser.getEmail() + ".png");
                 BitmapFactory.Options bmOptions = new BitmapFactory.Options();
                 Bitmap bitmap = BitmapFactory.decodeFile(image.getAbsolutePath(), bmOptions);
-                bitmap = Bitmap.createScaledBitmap(bitmap, 150, 150, true);
+                bitmap = Bitmap.createScaledBitmap(bitmap, 80, 80, true);
                 ivUserPhoto.setImageBitmap(bitmap);
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -107,16 +102,6 @@ public class MainActivity extends AppCompatActivity
         super.onResume();
         updateUI();
     }
-
-//    public void LoginScreen(View v) {
-//        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-//        startActivity(intent);
-//    }
-
-//    public void Logout(View v) {
-//        DatabaseHandler.getInstance(getApplicationContext()).deleteUser();
-//        updateUI();
-//    }
 
     @Override
     public void onBackPressed() {
@@ -162,9 +147,20 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_account) {
-            Toast.makeText(this, R.string.app_name, Toast.LENGTH_SHORT).show();
+            AccountFragment fragment = new AccountFragment();
+            Bundle args = new Bundle();
+            args.putString("loggedUser", loggedUser.toJson().toString());
+            fragment.setArguments(args);
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
         } else if (id == R.id.nav_assignment) {
-            Toast.makeText(this, R.string.app_name, Toast.LENGTH_SHORT).show();
+            GoalsListFragment fragment = new GoalsListFragment();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
         } else if (id == R.id.nav_sync) {
             Toast.makeText(this, R.string.app_name, Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_login) {

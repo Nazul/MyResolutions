@@ -33,7 +33,7 @@ import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.entity.StringEntity;
 import cz.msebera.android.httpclient.message.BasicHeader;
 import mx.iteso.msc.myresolutions.R;
-import mx.iteso.msc.myresolutions.mx.iteso.msc.myresolutions.utility.Security;
+import mx.iteso.msc.myresolutions.utility.Security;
 
 /**
  * Created by Mario_Contreras on 4/25/2017.

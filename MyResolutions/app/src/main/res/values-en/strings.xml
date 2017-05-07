@@ -41,4 +41,6 @@
     <string name="title_activity_account">Your Account</string>
     <string name="error_confirmation_failed">The passwords you entered did not match</string>
     <string name="action_account_save">Save</string>
+    <string name="action_goal_delete">Delete</string>
+    <string name="action_goal_edit">Edit</string>
 </resources><!-- EOF -->

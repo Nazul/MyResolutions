@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package mx.iteso.msc.myresolutions.mx.iteso.msc.myresolutions.utility;
+package mx.iteso.msc.myresolutions.utility;
 
 import android.util.Base64;
 

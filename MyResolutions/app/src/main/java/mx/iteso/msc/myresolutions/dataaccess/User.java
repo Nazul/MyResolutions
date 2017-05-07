@@ -91,6 +91,19 @@ public class User {
     public void setSynced(boolean synced) {
         this.synced = synced;
     }
+
+    public JSONObject toJson() {
+        try {
+            JSONObject json = new JSONObject();
+            json.put("email", email);
+            json.put("firstName", firstName);
+            json.put("lastName", lastName);
+            json.put("nick", nick);
+            return json;
+        } catch (Exception e) {
+            return null;
+        }
+    }
 }
 
 // EOF

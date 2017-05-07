@@ -16,15 +16,20 @@
 
 package mx.iteso.msc.myresolutions;
 
+import android.Manifest;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
@@ -42,9 +47,9 @@ import java.io.IOException;
 
 import mx.iteso.msc.myresolutions.dataaccess.DatabaseHandler;
 import mx.iteso.msc.myresolutions.dataaccess.User;
-import mx.iteso.msc.myresolutions.mx.iteso.msc.myresolutions.utility.CloudStorage;
-import mx.iteso.msc.myresolutions.mx.iteso.msc.myresolutions.utility.ImagePicker;
-import mx.iteso.msc.myresolutions.mx.iteso.msc.myresolutions.utility.Security;
+import mx.iteso.msc.myresolutions.utility.CloudStorage;
+import mx.iteso.msc.myresolutions.utility.ImagePicker;
+import mx.iteso.msc.myresolutions.utility.Security;
 
 /**
  * Created by Mario_Contreras on 4/30/2017.
@@ -92,7 +97,20 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void ChangePhoto(View v) {
-        ImagePicker.pickImage(this, "Select your image:");
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                //
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (grantResults.length > 0) {
+            ImagePicker.pickImage(this, "Select your image:");
+        }
     }
 
     public void Register(View v) {
@@ -115,6 +133,30 @@ public class RegisterActivity extends AppCompatActivity {
         boolean cancel = false;
         View focusView = null;
 
+        if (TextUtils.isEmpty(user.getNick())) {
+            etLastName.setError(getString(R.string.error_field_required));
+            focusView = etLastName;
+            cancel = true;
+        }
+
+        if (TextUtils.isEmpty(user.getLastName())) {
+            etLastName.setError(getString(R.string.error_field_required));
+            focusView = etLastName;
+            cancel = true;
+        }
+
+        if (TextUtils.isEmpty(user.getFirstName())) {
+            etFirstName.setError(getString(R.string.error_field_required));
+            focusView = etFirstName;
+            cancel = true;
+        }
+
+        if (!password.equals(pwdConfirm)) {
+            etConfirm.setError(getString(R.string.error_confirmation_failed));
+            focusView = etConfirm;
+            cancel = true;
+        }
+
         if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
             etPassword.setError(getString(R.string.error_invalid_password));
             focusView = etPassword;
@@ -128,24 +170,6 @@ public class RegisterActivity extends AppCompatActivity {
         } else if (!isEmailValid(user.getEmail())) {
             etEmail.setError(getString(R.string.error_invalid_email));
             focusView = etEmail;
-            cancel = true;
-        }
-
-        if (TextUtils.isEmpty(user.getFirstName())) {
-            etFirstName.setError(getString(R.string.error_field_required));
-            focusView = etFirstName;
-            cancel = true;
-        }
-
-        if (TextUtils.isEmpty(user.getLastName())) {
-            etLastName.setError(getString(R.string.error_field_required));
-            focusView = etLastName;
-            cancel = true;
-        }
-
-        if (!password.equals(pwdConfirm)) {
-            etConfirm.setError(getString(R.string.error_invalid_password));
-            focusView = etConfirm;
             cancel = true;
         }
 

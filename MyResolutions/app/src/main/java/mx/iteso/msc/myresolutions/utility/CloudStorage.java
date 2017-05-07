@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-package mx.iteso.msc.myresolutions.mx.iteso.msc.myresolutions.utility;
-
-import android.content.Context;
+package mx.iteso.msc.myresolutions.utility;
 
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSCredentialsProvider;

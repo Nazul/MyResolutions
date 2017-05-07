@@ -41,4 +41,6 @@
     <string name="title_activity_account">Tu Cuenta</string>
     <string name="error_confirmation_failed">Las contraseñas no coinciden</string>
     <string name="action_account_save">Guardar</string>
+    <string name="action_goal_delete">Eliminar</string>
+    <string name="action_goal_edit">Modificar</string>
 </resources><!-- EOF -->
